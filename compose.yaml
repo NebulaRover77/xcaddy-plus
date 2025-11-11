@@ -1,0 +1,23 @@
+services:
+  proxy:
+    container_name: caddy
+    image: nebularover77/caddy-he-cfpl:20251109-140456
+    build:
+      context: .
+    user: "30000:30000"
+    restart: unless-stopped
+    networks:
+      - shared
+    ports:
+      - "0.0.0.0:80:80/tcp"
+      - "0.0.0.0:443:443/tcp"
+      - "0.0.0.0:443:443/udp"   # for HTTP/3 (optional but nice)
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - /mnt/opt/caddy/etc/conf.d:/etc/caddy/conf.d:ro
+      - /mnt/opt/caddy/data:/data
+      - /mnt/opt/caddy/config:/config
+networks:
+  shared:
+    external: true
+    name: shared

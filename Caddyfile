@@ -1,0 +1,18 @@
+{
+	# (optional) global options
+	servers {
+		# Pull CloudFront IPs from AWS's public JSON (no IAM needed)
+		trusted_proxies cloudfront {
+			interval 12h
+		}
+
+		# which headers to read the original client IP from (in order)
+		client_ip_headers X-Forwarded-For CloudFront-Viewer-Address
+
+		# only trust those headers if the connection is from a trusted proxy (above)
+		trusted_proxies_strict
+	}
+}
+
+# Load domain specific vhosts
+import /etc/caddy/conf.d/*.caddy
