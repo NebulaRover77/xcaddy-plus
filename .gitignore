@@ -31,5 +31,9 @@ bin/
 # Misc
 *.history
 
+# build/sign artifacts
+.tag
+.pushed-*
+
 cosign.key
 *.key
