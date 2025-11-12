@@ -30,3 +30,6 @@ bin/
 
 # Misc
 *.history
+
+cosign.key
+*.key
