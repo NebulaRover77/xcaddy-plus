@@ -34,6 +34,7 @@ bin/
 # build/sign artifacts
 .tag
 .pushed-*
+.digest
 
 cosign.key
 *.key
