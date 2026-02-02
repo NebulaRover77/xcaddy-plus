@@ -1,6 +1,5 @@
 services:
   caddy:
-    container_name: caddy
     image: docker.io/nebularover77/caddy-he-cfpl@sha256:ba5684f44f85b80c87f18fb39ef8462c9a9e9d3474b474459158d5925a706af4
 
     build:
@@ -8,17 +7,29 @@ services:
     user: "30000:30000"
     restart: unless-stopped
     networks:
-      - shared
+      shared:
+        aliases:
+          - caddy
     ports:
       - "0.0.0.0:80:80/tcp"
       - "0.0.0.0:443:443/tcp"
       - "0.0.0.0:443:443/udp"   # for HTTP/3 (optional but nice)
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - /mnt/opt/caddy/etc/conf.d:/etc/caddy/conf.d:ro
-      - /mnt/opt/caddy/data:/data
-      - /mnt/opt/caddy/config:/config
+      - caddy-etc-data:/etc/caddy/
+      - caddy-config-data:/config
+      - caddy-certs-data:/certs
+      - caddy-data-data:/data
 networks:
   shared:
     external: true
     name: shared
+
+volumes:
+  caddy-etc-data:
+    external: true
+  caddy-config-data:
+    external: true
+  caddy-certs-data:
+    external: true
+  caddy-data-data:
+    external: true
