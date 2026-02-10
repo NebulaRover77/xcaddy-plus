@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CTX="${DOCKER_CONTEXT:-alpine}"
+CTX="${DOCKER_CONTEXT:-prod}"
 NETWORK="${NETWORK_NAME:-shared}"
 
 # Resolve repo root (assumes this script lives in ./scripts)

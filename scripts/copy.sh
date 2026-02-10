@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CTX="${DOCKER_CONTEXT:-alpine}"
+CTX="${DOCKER_CONTEXT:-prod}"
 IMAGE="${COPY_IMAGE:-alpine:3.19}"
 
 log() { printf '%s\n' "$*"; }
