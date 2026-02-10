@@ -9,6 +9,7 @@ services:
     restart: unless-stopped
     networks:
       shared:
+      shared-ipv6:
         aliases:
           - caddy
     ports:
@@ -24,6 +25,9 @@ networks:
   shared:
     external: true
     name: shared
+  shared-ipv6:
+    external: true
+    name: shared-ipv6
 
 volumes:
   caddy-etc-data:
