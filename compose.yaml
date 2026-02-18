@@ -16,6 +16,8 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
       - "443:443/udp"   # for HTTP/3 (optional but nice)
+      - "4443:443/tcp"
+      - "4443:443/udp"   # for HTTP/3 (optional but nice)
     volumes:
       - caddy-etc-data:/etc/caddy/
       - caddy-config-data:/config
