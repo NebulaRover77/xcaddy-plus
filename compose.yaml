@@ -22,8 +22,8 @@ services:
         aliases:
           - caddy
     ports:
-      - "[::]:4443:443/tcp"
-      - "[::]:4443:443/udp"   # for HTTP/3 (optional but nice)
+      - "[::]:4443:8443/tcp"
+      - "[::]:4443:8443/udp"   # for HTTP/3 (optional but nice)
     volumes:
       - this-is-prod:/sentinel
       - caddy-etc-data:/etc/caddy/

@@ -1,5 +1,7 @@
 {
-	# (optional) global options
+	https_port 8443
+	auto_https disable_redirects
+
 	servers {
 		# Pull CloudFront IPs from AWS's public JSON (no IAM needed)
 		trusted_proxies cloudfront {
